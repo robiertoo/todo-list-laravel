@@ -40,7 +40,7 @@ class TaskController extends Controller
     {
         //
         $request->validate([
-            'description' => 'required|string'
+            'description' => 'required|string|unique'
         ]);
 
         $task = new Task([
@@ -72,7 +72,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -85,6 +85,24 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         //
+        $request->validate([
+            'description' => "string|required"
+        ]);
+
+        $task = Task::findOrFail($task->id);
+        $task->description = $request->description;
+        $task->save();
+        return redirect(route('home'), 201)
+            ->with('message', 'Tarefa alterada com sucesso!');
+    }
+
+    public function completeTask(Task $task)
+    {
+        $task = Task::findOrFail($task->id);
+        $task->completed = true;
+        $task->save();
+        return redirect(route('home'), 201)
+            ->with('message', 'Tarefa salva como completa!');
     }
 
     /**
@@ -96,5 +114,11 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         //
+        $task = Task::findOrFail($task->id);
+    
+        $task->delete();
+
+        return redirect(route('home'), 201)
+            ->with('message', 'Tarefa apagada com sucesso!');
     }
 }
