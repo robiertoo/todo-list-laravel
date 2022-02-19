@@ -39,16 +39,22 @@
                     <td>
                         <div class="d-flex">
                             @if (!$task->completed)
-                                <a class='btn btn-primary btn-sm' href="{{ route('tasks.edit', $task) }}">Editar</a>
+                                <a class='btn' href="{{ route('tasks.edit', $task) }}" title='Editar'>
+                                    <x-fas-edit class='icon text-primary' />
+                                </a>
                                 <form action="{{ route('tasks.complete', $task) }}" method="POST">
                                     @csrf
                                     @method('patch')
-                                    <button class='btn btn-success btn-sm ms-1'>Marcar como feito</button>
+                                    <button class='btn' title='Marcar como feito'>
+                                        <x-fas-check class='icon text-success' />
+                                    </button>
                                 </form>
                                 <form action="{{ route('tasks.delete', $task) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class='btn btn-danger btn-sm ms-1'>Apagar</button>
+                                    <button class='btn' title='Apagar'>
+                                        <x-fas-trash class='icon text-danger' />
+                                    </button>
                                 </form>
                             @else
                                 <span class='text-success'>
