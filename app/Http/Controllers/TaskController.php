@@ -15,7 +15,10 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $tasks = auth()->user()->tasks;
+        $tasks = auth()->user()
+            ->tasks
+            ->sortByDesc('updated_at')
+            ->sortBy('completed');
         return view('tasks.index', compact('tasks'));
     }
 
@@ -27,7 +30,8 @@ class TaskController extends Controller
     public function create()
     {
         //
-        return view('tasks.create');
+        $task = new Task;
+        return view('tasks.create', compact('task'));
     }
 
     /**
@@ -40,7 +44,7 @@ class TaskController extends Controller
     {
         //
         $request->validate([
-            'description' => 'required|string|unique'
+            'description' => 'required|string'
         ]);
 
         $task = new Task([

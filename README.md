@@ -2,7 +2,7 @@
 Simple ToDo-List with [Laravel 9](https://laravel.com/docs/9.x/releases) 
 
 ## Todo
-- ptBr
+- ~~ ptBr ~~
 - tests
 - logging with observers
 - add category to tasks
