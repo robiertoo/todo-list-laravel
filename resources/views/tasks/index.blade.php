@@ -7,7 +7,7 @@
 </a>
 
 @if ($tasks->isEmpty())
-    <h3>Nenhum registro encontrado!</h3>
+    <h3>Nenhuma tarefa cadastrada!</h3>
 @else
     <h1>Tarefas</h1>
 
@@ -29,6 +29,6 @@
     </table>
 @endif
 
-{{ $tasks->links() }}
+{{-- {{ $tasks->links() }} --}}
     
 @endsection
