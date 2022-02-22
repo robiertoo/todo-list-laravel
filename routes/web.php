@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function() {
         Route::patch('/tasks/{task}/update', 'update')->name('tasks.update');
         Route::patch('/tasks/{task}/complete', 'completeTask')->name('tasks.complete');
         Route::delete('/tasks/{task}/delete', 'destroy')->name('tasks.delete');
+        Route::get('/tasks/completed', 'showCompletedTasks')->name('tasks.completed');
     });
 });
 

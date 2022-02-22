@@ -15,12 +15,20 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $tasks = auth()->user()
-            ->tasks
-            ->sortByDesc('updated_at')
-            ->sortBy('completed');
+        $task = new Task;
+
+        $tasks = $task->showUncompletedTasks();
             
         return view('tasks.index', compact('tasks'));
+    }
+
+    public function showCompletedTasks()
+    {
+        $task = new Task;
+
+        $tasks = $task->showCompletedTasks();
+
+        return view('tasks.completedTasks', compact('tasks'));
     }
 
     /**

@@ -7,7 +7,7 @@
 </a>
 
 @if ($tasks->isEmpty())
-    <h3>Nenhuma tarefa não realizada encontrada!</h3>
+    <h3>Nenhuma tarefa não foi realizada!</h3>
 @else
     <h1>
         Tarefas
@@ -24,7 +24,7 @@
         <thead class='table-dark'>
             <tr>
                 <th>Tarefa</th>
-                <th>Ações</th>
+                <th>Informações</th>
             </tr>
         </thead>
         <tbody>
