@@ -5,7 +5,7 @@ Sisteminha para gerenciamento de tarefas utilizando [Laravel 9](https://laravel.
 - ~ptBr~
 - ~mostrar tarefas não realizadas na página inicial~
 - ~mostrar tarefas já realizadas~
-- paginação
+- ~paginação~
 - restaurar tarefas
 - apagar todas tarefas
 - ~icones~

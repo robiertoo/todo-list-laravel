@@ -21,8 +21,8 @@ class TaskFactory extends Factory
             'description' => $this->faker->sentence(6),
             'completed' => $this->faker->boolean(),
             'user_id' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => $this->faker->dateTimeThisYear(),
+            'updated_at' => $this->faker->dateTimeThisYear(),
         ];
     }
 }

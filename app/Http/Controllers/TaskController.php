@@ -22,13 +22,13 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $tasks = $this->model->uncompleted();
+        $tasks = $this->model->uncompleted()->paginate(10);
         return view('tasks.index', compact('tasks'));
     }
 
     public function showCompletedTasks()
     {
-        $tasks = $this->model->completed();
+        $tasks = $this->model->completed()->paginate(10);
         return view('tasks.completedTasks', compact('tasks'));
     }
 

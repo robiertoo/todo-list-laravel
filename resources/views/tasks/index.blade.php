@@ -72,6 +72,6 @@
     </table>
 @endif
 
-{{-- {{ $tasks->links() }} --}}
+{{ $tasks->links() }}
     
 @endsection

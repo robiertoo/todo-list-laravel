@@ -20,16 +20,21 @@ class Task extends Model
 
     public function scopeCompleted()
     {
-        return auth()->user()
-            ->tasks
-            ->where('completed', true)
-            ->sortByDesc('updated_at');
+        return $this
+            ->where([
+                'completed' => true,
+                'user_id' => auth()->user()->id
+            ])
+            ->orderBy('updated_at', 'desc');
     }
 
     public function scopeUncompleted()
     {
-        return auth()->user()
-            ->tasks
-            ->where('completed', false);
+        return $this
+            ->where([
+                'completed' => false,
+                'user_id' => auth()->user()->id
+            ])
+            ->orderBy('updated_at', 'desc');
     }
 }

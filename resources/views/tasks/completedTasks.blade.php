@@ -7,7 +7,7 @@
 </a>
 
 @if ($tasks->isEmpty())
-    <h3>Nenhuma tarefa não foi realizada!</h3>
+    <h3>Nenhuma tarefa realizada!</h3>
 @else
     <h1>
         Tarefas
@@ -70,8 +70,10 @@
             @endforeach
         </tbody>
     </table>
-@endif
-
-{{-- {{ $tasks->links() }} --}}
+    @endif
+    
+    <div class="w-100 d-flex justify-content-center">
+        {{ $tasks->links() }}
+    </div>
     
 @endsection
