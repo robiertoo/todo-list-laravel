@@ -19,6 +19,7 @@ class TaskController extends Controller
             ->tasks
             ->sortByDesc('updated_at')
             ->sortBy('completed');
+            
         return view('tasks.index', compact('tasks'));
     }
 

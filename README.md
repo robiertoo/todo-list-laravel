@@ -1,10 +1,15 @@
 # ToDo List
-Simple ToDo-List with [Laravel 9](https://laravel.com/docs/9.x/releases) 
+Sisteminha para gerenciamento de tarefas utilizando [Laravel 9](https://laravel.com/docs/9.x/releases) 
 
 ## Todo
-- ~~ptBr~~
-- icons
-- tests
-- logging with observers
-- add category to tasks
-- make it not so simple (date, e-mails to remember...)
+- ~ptBr~
+- mostrar tarefas não realizadas na página inicial
+- mostrar tarefas já realizadas
+- paginação
+- restaurar tarefas
+- apagar todas tarefas
+- ~icones~
+- testes
+- logs com observers
+- adicionar categorias às tarefas
+- fazê-lo não ser tão simples assim (datas, e-mails de aviso...)

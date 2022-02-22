@@ -2,14 +2,17 @@
 
 @section('content')
 
-<a class="btn btn-primary float-end" href="{{ route('tasks.create') }}">
-    Nova Tarefa
+<a class="btn btn-primary float-end" href="{{ route('tasks.create') }}" title='Nova tarefa'>
+    <x-fas-plus class='icon' />
 </a>
 
 @if ($tasks->isEmpty())
     <h3>Nenhuma tarefa cadastrada!</h3>
 @else
-    <h1>Tarefas</h1>
+    <h1>
+        Tarefas
+        <x-fas-tasks class='icon ms-2' />
+    </h1>
 
     @if (Session::has('message'))
         <div class="alert alert-success">
