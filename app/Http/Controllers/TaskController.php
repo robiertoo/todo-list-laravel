@@ -17,7 +17,7 @@ class TaskController extends Controller
         //
         $task = new Task;
 
-        $tasks = $task->showUncompletedTasks();
+        $tasks = $task->uncompleted();
             
         return view('tasks.index', compact('tasks'));
     }
@@ -26,7 +26,7 @@ class TaskController extends Controller
     {
         $task = new Task;
 
-        $tasks = $task->showCompletedTasks();
+        $tasks = $task->completed();
 
         return view('tasks.completedTasks', compact('tasks'));
     }

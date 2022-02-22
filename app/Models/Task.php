@@ -18,7 +18,7 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function showCompletedTasks()
+    public function scopeCompleted()
     {
         return auth()->user()
             ->tasks
@@ -26,7 +26,7 @@ class Task extends Model
             ->sortByDesc('updated_at');
     }
 
-    public function showUncompletedTasks()
+    public function scopeUncompleted()
     {
         return auth()->user()
             ->tasks
