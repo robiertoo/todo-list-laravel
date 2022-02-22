@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    private Task $model;
+
+    public function __construct(Task $model)
+    {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,19 +22,13 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $task = new Task;
-
-        $tasks = $task->uncompleted();
-            
+        $tasks = $this->model->uncompleted();
         return view('tasks.index', compact('tasks'));
     }
 
     public function showCompletedTasks()
     {
-        $task = new Task;
-
-        $tasks = $task->completed();
-
+        $tasks = $this->model->completed();
         return view('tasks.completedTasks', compact('tasks'));
     }
 
