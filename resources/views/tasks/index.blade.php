@@ -72,6 +72,8 @@
     </table>
 @endif
 
-{{ $tasks->links() }}
+<div class="d-flex justify-content-center">
+    {{ $tasks->links() }}
+</div>
     
 @endsection
