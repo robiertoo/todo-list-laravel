@@ -13,7 +13,7 @@ Sisteminha para gerenciamento de tarefas utilizando [Laravel 9](https://laravel.
 - logs com observers
 - adicionar categorias às tarefas
 - fazê-lo não ser tão simples assim (datas, e-mails de aviso...)
-- corrigir bug que mostra "Redirecting to... {url}"
+- ~corrigir bug que mostra "Redirecting to... {url}"~
 
 ##Observações
 Atualmente hospedado na heroku podendo ser acessado neste [link](http://lista-de-tarefas-rmn.herokuapp.com/).
