@@ -101,7 +101,8 @@ class TaskController extends Controller
         $task->completed = false;
         $task->save();
 
-        return redirect(route("home"), 201)
+        return redirect()
+            ->route("home")
             ->with('message', 'Tarefa restaurada com sucesso!');
     }
 }
