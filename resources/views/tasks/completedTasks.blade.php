@@ -60,4 +60,5 @@
         {{ $tasks->links() }}
     </div>
     
+    @include('tasks.itemsPerPage')
 @endsection

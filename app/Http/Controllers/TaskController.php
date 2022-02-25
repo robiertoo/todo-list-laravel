@@ -17,13 +17,15 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $tasks = $this->model->uncompleted()->paginate(10);
+        $itemsPerPage = auth()->user()->itemsPerPage;
+        $tasks = $this->model->uncompleted()->paginate($itemsPerPage);
         return view('tasks.index', compact('tasks'));
     }
 
     public function showCompletedTasks()
     {
-        $tasks = $this->model->completed()->paginate(10);
+        $itemsPerPage = auth()->user()->itemsPerPage;
+        $tasks = $this->model->completed()->paginate($itemsPerPage);
         return view('tasks.completedTasks', compact('tasks'));
     }
 

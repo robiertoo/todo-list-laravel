@@ -14,6 +14,7 @@ Sisteminha para gerenciamento de tarefas utilizando [Laravel 9](https://laravel.
 - adicionar categorias às tarefas
 - fazê-lo não ser tão simples assim (datas, e-mails de aviso...)
 - ~corrigir bug que mostra "Redirecting to... {url}"~
+- ~permitir seleção de número de páginas que será salva na tabela de usuário~
 
 ## Observações
 - Atualmente hospedado na heroku podendo ser acessado neste [link](http://lista-de-tarefas-rmn.herokuapp.com/).

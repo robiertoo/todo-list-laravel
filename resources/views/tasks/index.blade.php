@@ -75,5 +75,6 @@
 <div class="d-flex justify-content-center">
     {{ $tasks->links() }}
 </div>
-    
+
+@include('tasks.itemsPerPage')
 @endsection
