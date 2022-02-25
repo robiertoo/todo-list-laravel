@@ -26,10 +26,11 @@ Route::middleware('auth')->group(function() {
         Route::post('/tasks', 'store')->name('tasks.store');
         Route::get('/tasks/create', 'create')->name('tasks.create');
         Route::get('/tasks/{task}/edit', 'edit')->name('tasks.edit');
-        Route::patch('/tasks/{task}/update', 'update')->name('tasks.update');
+        Route::put('/tasks/{task}/update', 'update')->name('tasks.update');
         Route::patch('/tasks/{task}/complete', 'completeTask')->name('tasks.complete');
         Route::delete('/tasks/{task}/delete', 'destroy')->name('tasks.delete');
         Route::get('/tasks/completed', 'showCompletedTasks')->name('tasks.completed');
+        Route::patch('/tasks/{task}/restore', 'restoreTask')->name('tasks.restore');
     });
 });
 

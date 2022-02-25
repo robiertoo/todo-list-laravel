@@ -102,8 +102,7 @@ class TaskController extends Controller
         $request->validate([
             'description' => "string|required"
         ]);
-
-        $task = Task::findOrFail($task->id);
+        
         $task->description = $request->description;
         $task->save();
         return redirect(route('home'), 201)
@@ -112,7 +111,6 @@ class TaskController extends Controller
 
     public function completeTask(Task $task)
     {
-        $task = Task::findOrFail($task->id);
         $task->completed = true;
         $task->save();
         return redirect(route('home'), 201)
@@ -127,12 +125,18 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
-        $task = Task::findOrFail($task->id);
-    
         $task->delete();
 
         return redirect(route('home'), 201)
             ->with('message', 'Tarefa apagada com sucesso!');
+    }
+
+    public function restoreTask(Task $task)
+    {
+        $task->completed = false;
+        $task->save();
+
+        return redirect(route("home"), 201)
+            ->with('message', 'Tarefa restaurada com sucesso!');
     }
 }

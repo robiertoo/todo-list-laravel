@@ -2,7 +2,7 @@
     <div class="card shadow p-4 col col-md-6">
         @if ($task->exists)
             <form action="{{ route('tasks.update', $task) }}" method="POST">
-                @method('patch')
+                @method('put')
         @else
             <form action="{{ route('tasks.store') }}" method="POST">
         @endif

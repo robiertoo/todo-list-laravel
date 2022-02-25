@@ -24,46 +24,30 @@
         <thead class='table-dark'>
             <tr>
                 <th>Tarefa</th>
-                <th>Informações</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($tasks as $task)
                 <tr>
                     <td>
-                        @if (!$task->completed)
+                        <span class='text-muted text-decoration-line-through'>
                             {{ $task->description }}
-                        @else
-                            <span class='text-muted text-decoration-line-through'>
-                                {{ $task->description }}
-                            </span>
-                        @endif
+                        </span>
                     </td>
                     <td>
-                        <div class="d-flex">
-                            @if (!$task->completed)
-                                <a class='btn' href="{{ route('tasks.edit', $task) }}" title='Editar'>
-                                    <x-fas-edit class='icon text-primary' />
-                                </a>
-                                <form action="{{ route('tasks.complete', $task) }}" method="POST">
-                                    @csrf
-                                    @method('patch')
-                                    <button class='btn' title='Marcar como feito'>
-                                        <x-fas-check class='icon text-success' />
-                                    </button>
-                                </form>
-                                <form action="{{ route('tasks.delete', $task) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class='btn' title='Apagar'>
-                                        <x-fas-trash class='icon text-danger' />
-                                    </button>
-                                </form>
-                            @else
-                                <span class='text-success'>
-                                    Feita em {{ date('d/m/Y H:i', strtotime($task->updated_at)) }}
-                                </span>
-                            @endif
+                        <div class="d-flex align-items-center">
+                            <span class='text-success'>
+                                Feita em {{ date('d/m/Y H:i', strtotime($task->updated_at)) }}
+                            </span>
+
+                            <form action="{{ route('tasks.restore', $task) }}" method='post'>
+                                @csrf
+                                @method('patch')
+                                <button class='btn' title='Restaurar'> 
+                                    <x-fas-trash-restore class='text-info icon' />
+                                </button>
+                            </form>
                         </div>
                     </td>
                 </tr>
