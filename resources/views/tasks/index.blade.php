@@ -77,4 +77,18 @@
 </div>
 
 @include('tasks.itemsPerPage')
+
+<script>
+    window.onload = () => {
+        const dismissAlert = () => {
+            let alert = document.querySelector('.alert');
+            if(alert == null) return false;
+
+            setTimeout(() => alert.classList.add('d-none'), 2000);
+        }
+
+        dismissAlert();
+    }
+</script>
+
 @endsection
