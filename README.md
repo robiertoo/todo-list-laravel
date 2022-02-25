@@ -16,5 +16,5 @@ Sisteminha para gerenciamento de tarefas utilizando [Laravel 9](https://laravel.
 - ~corrigir bug que mostra "Redirecting to... {url}"~
 
 ## Observações
-Atualmente hospedado na heroku podendo ser acessado neste [link](http://lista-de-tarefas-rmn.herokuapp.com/).
-O banco de dados é com sqlite que está dentro da heroku, então a cada push, o banco será 'restaurado'.
+- Atualmente hospedado na heroku podendo ser acessado neste [link](http://lista-de-tarefas-rmn.herokuapp.com/).
+- O banco de dados é com sqlite que está dentro da heroku, então a cada push, o banco será 'restaurado'.
