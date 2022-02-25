@@ -10,7 +10,7 @@ Sisteminha para gerenciamento de tarefas utilizando [Laravel 9](https://laravel.
 - apagar todas tarefas
 - ~icones~
 - testes
-- logs com observers
+- ~logs com observers~
 - adicionar categorias às tarefas
 - fazê-lo não ser tão simples assim (datas, e-mails de aviso...)
 - ~corrigir bug que mostra "Redirecting to... {url}"~
