@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,9 +15,9 @@ class UserController extends Controller
         $this->model = $model;
     }
 
-    public function updateItemsPerPage(Request $request)
+    public function updateItemsPerPage(Request $request): JsonResponse
     {
-        $user = $this->model->findOrFail(auth()->user()->id);
+        $user = $this->model->findOrFail(auth()->id());
         $newNumber = $request->newNumber;
         
         $user->itemsPerPage = $newNumber;

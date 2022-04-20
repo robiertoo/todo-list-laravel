@@ -28,11 +28,8 @@ class TaskTest extends TestCase
             'user_id' => $user->id,
         ];
 
-        // dd($task);
-
-        $response = $this->actingAs($user)
+        $this->actingAs($user)
             ->post(route('tasks.store', $task))
-            ->assertSessionHas('message', 'Tarefa cadastrada com sucesso!')
-            ->assertStatus(201);
+            ->assertSessionHas('message', 'Tarefa cadastrada com sucesso!');
     }
 }

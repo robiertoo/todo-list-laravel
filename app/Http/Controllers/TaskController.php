@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -14,7 +17,7 @@ class TaskController extends Controller
         $this->model = $model;
     }
 
-    public function index()
+    public function index(): View|Factory
     {
         //
         $itemsPerPage = auth()->user()->itemsPerPage;
@@ -22,21 +25,21 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
-    public function showCompletedTasks()
+    public function showCompletedTasks(): View|Factory
     {
         $itemsPerPage = auth()->user()->itemsPerPage;
         $tasks = $this->model->completed()->paginate($itemsPerPage);
         return view('tasks.completedTasks', compact('tasks'));
     }
 
-    public function create()
+    public function create(): View|Factory
     {
         //
         $task = new Task;
         return view('tasks.create', compact('task'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         //
         $request->validate([
@@ -54,17 +57,12 @@ class TaskController extends Controller
             ->with('message', 'Tarefa cadastrada com sucesso!');
     }
 
-    public function show(Task $task)
-    {
-        //
-    }
-
-    public function edit(Task $task)
+    public function edit(Task $task): View|Factory
     {
         return view('tasks.edit', compact('task'));
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task): RedirectResponse
     {
         //
         $request->validate([
@@ -78,7 +76,7 @@ class TaskController extends Controller
             ->with('message', 'Tarefa alterada com sucesso!');
     }
 
-    public function completeTask(Task $task)
+    public function completeTask(Task $task): RedirectResponse
     {
         $task->completed = true;
         $task->save();
@@ -87,7 +85,7 @@ class TaskController extends Controller
             ->with('message', 'Tarefa salva como completa!');
     }
 
-    public function destroy(Task $task)
+    public function destroy(Task $task): RedirectResponse
     {
         $task->delete();
 
@@ -96,7 +94,7 @@ class TaskController extends Controller
             ->with('message', 'Tarefa apagada com sucesso!');
     }
 
-    public function restoreTask(Task $task)
+    public function restoreTask(Task $task): RedirectResponse
     {
         $task->completed = false;
         $task->save();
